@@ -1,0 +1,17 @@
+.image-with-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left; 
+}
+.image-with-text__media{
+    margin-right: 2rem;
+}
+.image-with-text__content{
+    max-width: 50%;
+}
+
+p{
+    font-family: Verdana!important;
+    font-weight: 700;
+}

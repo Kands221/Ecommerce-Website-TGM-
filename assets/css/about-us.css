@@ -1,0 +1,19 @@
+.rich-text__blocks{
+    display: block;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.img-rich{
+    position: absolute;
+    z-index: -1;
+    left: 20%;
+  }
+.img-rich2{
+    position: absolute;
+    z-index: -1;
+    right: 20%;
+    transform: translateY(100%);
+  }

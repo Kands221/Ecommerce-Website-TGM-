@@ -1,0 +1,54 @@
+.background-flavor{
+    background: #080808;
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+.flavor-mood2{
+    color: white;
+    font-size: 4rem;
+}
+
+.flavor-mood{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.img-flavor{
+    position: absolute;
+    bottom: -1.25%;
+}
+
+.img-flavor img{
+    width: 100%;
+}
+.check-flavor{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 0;
+}
+
+.check-flavor img{
+    width: 100%;
+}
+  
+.check-flavor:hover img {
+    /* Change the image inside .check-flavor on hover */
+    content: url('check2.png');
+  }
+
+
+  @media screen and (max-width: 990px) {
+    .background-flavor{
+        height: 60vh;
+    }
+  }

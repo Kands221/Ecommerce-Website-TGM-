@@ -1,0 +1,247 @@
+:root {
+    --slider-height: 60vw;
+    --half-slider-height: calc(var(--slider-height) / 2);
+}
+
+.bg-carousel{
+    height: 150vh;
+    position: relative;
+    overflow: hidden;
+}
+.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute; /* Position the slider container absolute within .bg-carousel */
+    bottom: 5%; /* Adjust the positioning based on your layout */
+    left: 50%;
+    transform: translate(-50%);
+    }
+
+.circular-slider {
+    position: relative;
+    width: var(--slider-height);
+    height: var(--slider-height);
+    color: #fff;
+    text-align: center;
+    transform: translate(0, 50%);
+    z-index: -1;
+}
+
+.wrapper {
+    position: absolute;
+    width: 100%;
+    height: 140%;
+    border-radius: 50%;
+    transform: rotateZ(24deg);
+    transition: 1s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+.slides {
+    width: 15vw;
+    position: absolute;
+    left: 0;
+    transform: rotateZ(calc(360deg / 6 * var(--img-no))) translateY(var(--half-slider-height));
+    transform-origin: var(--half-slider-height);
+}
+
+.slides img {
+    width: 100%;
+    transform: rotateZ(calc(2 * 360deg / -5)) scale(var(--scale, 1.2));
+    object-fit: cover;
+}
+
+/* Your existing styles ... */
+
+.slider-button {
+    top: calc(50% - 1.5rem);
+    position: absolute;
+    cursor: pointer;
+    font-size: 1.5rem;
+    /* Adjust the button position */
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-button.left {
+    left: 5%;
+}
+
+.slider-button.left img{
+    rotate: 180deg;
+    width: 100%;
+    height: auto;
+}
+.slider-button.right img{
+    width: 100%;
+    height: auto;
+}
+
+.slider-button.right {
+    right: 5%;
+}
+
+.circle {
+    position: absolute;
+    bottom: 0%;
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    width: 110%;
+    height: 140vmin;
+    background: #36AA52;
+    clip-path: circle(69.1% at 50% 100%);
+    z-index: -1;
+}
+
+.add-to-cart {
+    display: flex;
+    width: 100%; /* Fluid width */
+    max-width: 200px; /* Limit maximum width */
+    max-height: 78.317px;
+    height: 100%; /* Adjust height automatically */
+    justify-content: center;
+    align-items: center;
+    gap: 2%; /* Relative gap */
+    flex-shrink: 0;
+    border: none;
+    background: #C9DD41;
+    font-family: Verdana, sans-serif; /* Added fallback font */
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: #fff;
+    transition: background-color 0.5s ease; /* Faster transition */
+    cursor: pointer;
+}
+
+.button-container{
+    transform: translate(-50%, -50%);
+    top: 15%;
+    position: absolute;
+    left: 51%;
+    cursor: pointer;
+    text-align: center;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+}
+
+.button-cart::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: var(--buttons-radius-outset);
+    box-shadow: var(--shadow-horizontal-offset) var(--shadow-vertical-offset) var(--shadow-blur-radius) rgba(var(--color-shadow),var(--shadow-opacity));
+}
+.button-cart::after{
+    content: "";
+    position: absolute;
+    top: var(--buttons-border-width);
+    right: var(--buttons-border-width);
+    bottom: var(--buttons-border-width);
+    left: var(--buttons-border-width);
+    z-index: 1;
+    border-radius: var(--buttons-radius);
+    box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) rgba(var(--color-button-text),var(--border-opacity)),0 0 0 var(--buttons-border-width) rgba(var(--color-button),var(--alpha-button-background));
+    transition: box-shadow var(--duration-short) ease;
+    }
+
+
+
+/* Responsiveness */
+@media screen and (max-width: 1540px) {
+  
+}
+/* Desktop - Medium */
+@media screen and (max-width: 1440px) {
+  
+}
+/* Desktop - Small */
+@media screen and (max-width: 1280px) {
+  
+}
+/* Laptop */
+@media screen and (max-width: 990px) {
+    .bg-carousel{
+        height: 150vh;
+    }
+  
+}
+/*Checkpoint to Mobile*/
+@media screen and (max-aspect-ratio: 16/9) and (max-width: 990px) {
+    /* Content for screens with a 16:9 aspect ratio and a width of 990px or narrower */
+    .bg-carousel {
+      height: 110vh;
+    }
+    .slides {
+      width: 56vw;
+      right: 125%;
+      transform: rotateZ(calc(360deg / 6 * var(--img-no))) translateY(100vw);
+      transform-origin: 100vw;
+    }
+    .circle {
+      height: 400vmin;
+    }
+    .circular-slider {
+      width: 200vw;
+      height: 200vw;
+    }
+    .slider-button.left {
+        left: 30%;
+    }
+    .slider-button.right {
+        right: 30%;
+    }
+  }
+/* Mobile Phone Landscape 1 */
+@media screen and (max-aspect-ratio: 3/2) and (max-width: 800px) {
+    /* Content for screens with a 3:2 aspect ratio and a width of 800px or narrower */
+    .bg-carousel {
+        height: 150vh;
+      }
+  }
+  
+  /* Tablet */
+  @media screen and (max-aspect-ratio: 4/3) {
+    /* Content for screens with a 4:3 aspect ratio and a width of 768px or narrower */
+    .bg-carousel {
+        height: 150vh;
+      }
+  }
+  
+  /* Mobile Phone Landscape 2 */
+  @media screen and (max-aspect-ratio: 16/9) and (max-width: 700px) {
+    /* Content for screens with a 16:9 aspect ratio and a width of 700px or narrower */
+  }
+  
+  /* Mobile Landscape */
+  @media screen and (max-aspect-ratio: 16/9) and (max-width: 568px) {
+    /* Content for screens with a 16:9 aspect ratio and a width of 568px or narrower */
+  }
+  
+  /* Mobile Portrait */
+  @media screen and (max-aspect-ratio: 9/16) and (max-width: 480px) {
+    /* Content for screens with a 9:16 aspect ratio and a width of 480px or narrower */
+    .bg-carousel {
+        height: 110vh;
+      }
+  }
+  
+  /* Galaxy */
+  @media screen and (max-aspect-ratio: 2/3) and (max-width: 360px) {
+    /* Content for screens with a 2:3 aspect ratio and a width of 360px or narrower */
+  }

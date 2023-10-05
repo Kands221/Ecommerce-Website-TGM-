@@ -1,0 +1,57 @@
+/** NAVBAR **/
+.navbar{
+    font-size: 16px;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    top: 0;
+    left: 0;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-brand img{
+    width: 110px;
+    height: auto;
+}
+.navbar-nav
+.nav-link{
+    padding: 0 20px;
+    color: #000;
+    transition: 0.4s ease;   
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav i:hover,
+.navbar-nav .nav-link:active
+.navbar-nav i:hover{
+    text-decoration: underline;
+}
+
+.navbar i {
+    font-size: 1.2rem;
+    padding: 0 0.7px;
+    transition: 0.4s ease;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.nav-bag-search{
+    
+    cursor: pointer;
+    list-style: none;
+}
+
+@media only screen and (max-width: 990px){
+    .nav-buttons{
+        margin-left: 10px;
+    }
+
+    .nav-buttons ul{
+        margin: 1rem;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .nav-bag-search{
+        margin-left: 45px;
+    }
+}

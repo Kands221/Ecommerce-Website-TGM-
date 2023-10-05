@@ -1,0 +1,161 @@
+/** hero section **/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lilita One', cursive;
+}
+.background{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(179.44deg, #119B3A 0.49%, #96D890 60.2%, rgba(255, 255, 255, 0) 83.21%);
+    z-index: 1;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}  
+
+.imgBox,
+.imgBox2,
+.imgBox3 {
+  width: 85%; /* Images will take 100% of the parent container width */
+  height: auto; /* Height will adjust to maintain aspect ratio */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imgBox4{
+  position: absolute;
+  right: 20%;
+  bottom: 25%;
+  transform: translate(50%);
+  border: none;
+}
+a{
+  text-decoration: none;
+}
+.imgBox4 .button_shop{
+  display: flex;
+  background-color: white;
+  color: #9DC53B;
+  width: 17.5em;
+  padding: 1.25em;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 2em;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border: none;
+  
+}
+.button_shop:hover{
+  background-color: #9DC53B;
+}
+.text{
+  color: #9DC53B;
+  font-size: 2em;
+  font-weight: 300;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.shop{
+  transition: transform 0.3s ease-in-out;
+}
+
+.button_shop:hover .text{
+  transform: scale(1.1);
+}
+.button_shop:hover .shop{
+  transform: scale(1.1);
+}
+
+
+.bottle,
+.imgTransform {
+    max-width: 70%; /* Images won't exceed their natural size */
+    height: auto; /* Height will adjust to maintain aspect ratio */
+    aspect-ratio: 3/2;
+    object-fit: contain;
+  }
+
+.imgBox2 img{
+    cursor: pointer;
+    position: absolute;
+    right: 25%;
+    bottom: 40%;
+    transform: translateX(50%);
+    z-index: 999;
+}
+
+.click{
+  max-width: 20%;
+  height: auto;
+}
+
+.sliding .imgBox3 {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    width: 150%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+@keyframes zoomInAndMove {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.zoom-in-move {
+  animation: zoomInAndMove 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.click-img-transition {
+  animation: fadeIn 0.5s ease;/* Transition the filter property */
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+/** TOOLTIP **/
+  
+
+  /* Media Query */
+
+
+  @media screen and (max-width: 480px) {
+    .background {
+      height: 80vh;
+    }
+    .bottle{
+      max-height: 100%;
+      max-width: none;
+    }
+    .imgTransform{
+      max-width: 100%;
+    }
+    .imgBox4{
+      right: 50%;
+      bottom: 10%;
+    }
+    .click{
+      max-width: 35%;
+    }
+  }
+  
