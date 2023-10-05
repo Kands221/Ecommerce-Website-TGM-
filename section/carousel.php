@@ -1,34 +1,47 @@
+
+<?php
+
+include('server/connection.php');
+
+$sql = "SELECT * FROM products";
+$result = $conn->query($sql);
+
+
+?>
+
+  
 <div class="bg-carousel">
   <div class="circle-container">
     <div class="circle"></div>
   </div>
   <div class="slider-container">
     <div class="quick-add no-js-hidden button-container">
+ 
         <form
-          method="post"
-          action="server/process_form.php"
+          method="POST"
+          action="cart.php"
           id="quick-add-template--20635886092591__product-grid8841119891759"
-          accept-charset="UTF-8"
-          class="form"
-          enctype="multipart/form-data"
-          novalidate="novalidate"
-          data-type="add-to-cart-form"
         >
-          <input type="hidden" name="form_type" value="product">
-          <input type="hidden" name="utf8" value="✓">
-          <input type="hidden" name="id" value="47000953913630">
+        <?php 
+          while($row = $result->fetch_assoc()) {
+        ?>
+              <input type="hidden" name="product_id" id="product_id" value="0" />
+
+              <input type="hidden" name="product_image" value="<?php echo $row['product_image']; ?>"/>
+              <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>"/>
+              <input type="hidden" name="product_price" value="<?php echo $row['product_price']; ?>"/>
+              <input type="hidden" name="product_quantity" value="1">
+              <?php
+              }
+      
+          $conn->close();
+          ?>
           <button
-            id="quick-add-template--20635886092591__product-grid8841119891759-submit"
-            type="submit"
-            name="add"
-            class="quick-add__submit button button--full-width button--secondary add-to-cart"
-            aria-haspopup="dialog"
-            aria-labelledby="quick-add-template--20635886092591__product-grid8841119891759-submit title-template--20635886092591__product-grid-8841119891759"
-            aria-live="polite"
-            data-sold-out-message="true"
+            name="add_to_cart"
+            class="buy-btn"
+  
           >
             <span>Add to cart </span>
-            <span class="sold-out-message hidden"> Sold out </span>
             <div class="loading-overlay__spinner hidden">
               <svg
                 aria-hidden="true"
@@ -41,8 +54,9 @@
               </svg>
             </div>
           </button>
+     
         </form>
-      </product-form>
+
     </div>
     <button class="slider-button left" id="leftButton"><img src="assets/img/arrow.png"></button>
     <div class="circular-slider">
@@ -56,5 +70,30 @@
       </ul>
     </div>
     <button class="slider-button right" id="rightButton"><img src="assets/img/arrow.png"></button>
+ 
   </div>
 </div>
+
+<script>
+$(document).ready(function() {
+    // Define an object to map image numbers to product IDs
+    var imageToProductId = {
+        1: 1,  // Map image number 1 to product ID 1
+        2: 2,
+        3: 3,
+        4: 4, 
+        5: 5,
+        6: 6 // Map image number 2 to product ID 2, and so on
+        // Add more mappings as needed
+    };
+
+    // Event listener for when a slide changes
+    $('.slider-button').on('click', function() {
+        // Get the active image number from the style attribute
+        var activeImageNumber = parseInt($(this).attr('--img-no'));
+
+        // Update the product_id input field with the corresponding product ID
+        $('#product_id').val(imageToProductId[activeImageNumber]);
+    });
+});
+</script>

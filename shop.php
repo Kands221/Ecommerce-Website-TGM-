@@ -36,7 +36,7 @@
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img src="assets/img/<?php echo $row['product_image']; ?>" alt="" class="img-fluid mb-3">
                 <h5 class="p-name"><?php echo $row['product_name']; ?></h5>
-                <h4 class="p-price"><?php echo $row['product_price']; ?></h4>
+                <h4 class="p-price">₱<?php echo $row['product_price']; ?></h4>
                 <a href="<?php echo "single_product.php?product_id=". $row['product_id'];?>"><button class="buy-btn">Buy Now</button></a>
             </div>
 

@@ -12,7 +12,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     position: absolute; /* Position the slider container absolute within .bg-carousel */
     bottom: 5%; /* Adjust the positioning based on your layout */
     left: 50%;

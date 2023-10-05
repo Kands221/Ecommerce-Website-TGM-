@@ -69,7 +69,7 @@ $product_id = $_GET['product_id'];
           </li>
              
         </div>
-      </nav>
+    </nav>
       
       
 

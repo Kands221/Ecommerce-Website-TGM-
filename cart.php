@@ -81,7 +81,6 @@ if(isset($_POST['add_to_cart'])){
     calculateTotalCart();
   
 }else{
-  header('location: index.php');
 }
 
 
@@ -89,13 +88,13 @@ function calculateTotalCart(){
   foreach($_SESSION['cart'] as $key => $value){
       $product = $_SESSION['cart'][$key];
 
-      $price = $product['product_price'];
-      $quantity = $product['product_quantity'];
+      $price = (int) $product['product_price'];
+      $quantity = (int) $product['product_quantity'];
 
-      $total = 0; 
+      $total = 0;
       $total += ($price * $quantity);
   }
-
+    $_SESSION['total'] = 0;
     $_SESSION['total'] = $total;
 }
 
@@ -209,7 +208,7 @@ function calculateTotalCart(){
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
                 <img src="assets/img/<?php echo $row['product_image']; ?>" alt="" class="img-fluid mb-3">
                 <h5 class="p-name"><?php echo $row['product_name']; ?></h5>
-                <h4 class="p-price"><?php echo $row['product_price']; ?></h4>
+                <h4 class="p-price">₱<?php echo $row['product_price']; ?></h4>
                 <form method="POST" action="cart.php">
               <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>"/>
               <input type="hidden" name="product_image" value="<?php echo $row['product_image']; ?>"/>

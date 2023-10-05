@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="imgBox4">
-    <a href="#" class="button_shop" id="orderButton">
+    <a href="shop.php" class="button_shop" id="orderButton">
       <h1 class="text">
         <img src="assets/img/shopPan.png" class="shop">
         Order Now

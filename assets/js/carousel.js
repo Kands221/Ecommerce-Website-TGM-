@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const button = document.querySelector(".add-to-cart");
 
     // Get the input element by its name
-    idInput = form.querySelector('input[name="id"]');
+    idInput = form.querySelector('input[name="product_id"]');
 
 
     const circleColor = ['#36AA52', '#FFE3AC', '#FFAAD2', '#FFE3AC', '#FFAAD2', '#85574E'];
