@@ -23,10 +23,35 @@
         </li>
       </ul> 
     </div> 
-    <li class="nav-item nav-bag-search">
-      <a href="cart.php"><i class="bi bi-bag"></i></a>
-        <i class="bi bi-search"></i>
-    </li>
-       
+    <a href="cart.php"><i class="bi bi-bag"></i></a>
+    <?php
+            if(isset($_SESSION['user'])){
+              $image = 'images/profile.jpg';
+              echo '
+                <li>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="'.$image.'" class="img-fluid rounded-circle border border-dark border-3" alt="User Image"  style="width: 70px;">
+                    <span>'.$user['firstname'].' '.$user['lastname'].'</span>
+                  </a>
+                    <!-- User image -->
+                    
+                    <li class="user-footer">
+                    
+                      <div class="pull-right">
+                        <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              ';
+            }
+            else{
+              echo "
+                <li><a href='login.php'>LOGIN</a></li>
+                <li><a href='signup.php'>SIGNUP</a></li>
+              ";
+            }
+          ?>
   </div>
 </nav>
+<?php include 'includes/scripts.php'; ?>
