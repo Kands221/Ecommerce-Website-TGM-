@@ -1,25 +1,6 @@
 <?php
 session_start();
-include 'includes/conn.php';
 
-	if(isset($_SESSION['admin'])){
-		header('location: admin/home.php');
-	}
-
-	if(isset($_SESSION['user'])){
-		$conn = $pdo->open();
-
-		try{
-			$stmt = $conn->prepare("SELECT * FROM users WHERE id=:id");
-			$stmt->execute(['id'=>$_SESSION['user']]);
-			$user = $stmt->fetch();
-		}
-		catch(PDOException $e){
-			echo "There is some problem in connection: " . $e->getMessage();
-		}
-
-		$pdo->close();
-	}
 if(isset($_POST['add_to_cart'])){
   //if user has already added a product to cart
   if(isset($_SESSION['cart'])){
@@ -118,8 +99,6 @@ function calculateTotalCart(){
 }
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
